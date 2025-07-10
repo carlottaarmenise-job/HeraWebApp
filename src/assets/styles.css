@@ -1,0 +1,30 @@
+:root {
+  --primary: #bacea6;
+  --secondary: #77935b;
+}
+
+.home-container {
+  background-color: var(--primary);
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-hero {
+  background-color: white !important;
+  border: 2px solid var(--secondary);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.home-logo {
+  width: 120px;
+  height: auto;
+}
+
+.home-title {
+  color: var(--secondary);
+  font-weight: bold;
+  font-size: 2.5rem;
+}

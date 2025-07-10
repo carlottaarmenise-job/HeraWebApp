@@ -1,16 +1,16 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import Sidebar from "./Sidebar";
 import { Outlet } from "react-router-dom";
+import Sidebar from "./Sidebar";
+import { Container, Row, Col } from "react-bootstrap";
 
 function Layout() {
   return (
     <Container fluid>
       <Row>
-        <Col xs={12} md={3} lg={2} className="p-0">
+        <Col md={2} className="bg-light p-0">
           <Sidebar />
         </Col>
-        <Col xs={12} md={9} lg={10} className="p-4">
+        <Col md={10} className="p-4">
           <Outlet />
         </Col>
       </Row>

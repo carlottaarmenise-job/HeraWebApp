@@ -23,8 +23,8 @@ function BookingManager() {
   };
 
   return (
-    <Card className="p-4">
-      <h2 className="mb-4">Gestione Prenotazioni</h2>
+    <Card className="p-4 shadow" style={{ border: "none", backgroundColor: "var(--primary)" }}>
+      <h2 className="mb-4 text-white text-center">Gestione Prenotazioni</h2>
 
       <ListGroup>
         {requests.map((req) => (
@@ -35,15 +35,23 @@ function BookingManager() {
               setSelected(req);
               setShowModal(true);
             }}
+            style={{
+              marginBottom: "6px",
+              borderRadius: "6px",
+              border: "1px solid var(--secondary)",
+              cursor: "pointer",
+              backgroundColor: "white",
+              fontWeight: "500",
+            }}
           >
             Richiesta da {req.user} - {req.date}
           </ListGroup.Item>
         ))}
       </ListGroup>
 
-      <Modal show={showModal} onHide={() => setShowModal(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title>Dettagli Prenotazione</Modal.Title>
+      <Modal show={showModal} onHide={() => setShowModal(false)} centered>
+        <Modal.Header closeButton style={{ backgroundColor: "var(--primary)" }}>
+          <Modal.Title style={{ color: "var(--secondary)" }}>Dettagli Prenotazione</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {selected && (
@@ -53,10 +61,12 @@ function BookingManager() {
               <p><strong>Budget:</strong> €{selected.budget}</p>
               <p><strong>Spesa:</strong> €{selected.spent}</p>
               <p>
-                <strong>Esito:</strong>
-                {selected.spent <= selected.budget
-                  ? " All'interno del budget"
-                  : " Fuori budget di €" + (selected.spent - selected.budget)}
+                <strong>Esito:</strong>{" "}
+                <span style={{ color: selected.spent <= selected.budget ? "green" : "red" }}>
+                  {selected.spent <= selected.budget
+                    ? "All'interno del budget"
+                    : `Fuori budget di €${selected.spent - selected.budget}`}
+                </span>
               </p>
               <hr />
               <Form>
@@ -85,10 +95,10 @@ function BookingManager() {
           )}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleTokenGenerate}>
+          <Button variant="outline-secondary" onClick={handleTokenGenerate}>
             Genera Token Voto
           </Button>
-          <Button variant="primary" onClick={handleConfirm}>
+          <Button variant="success" onClick={handleConfirm}>
             Conferma Appuntamento
           </Button>
         </Modal.Footer>
