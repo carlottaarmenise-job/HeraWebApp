@@ -5,6 +5,7 @@ import MenuEditor from "./location/Menu";
 import BookingManager from "./location/Bookings";
 import StatsPage from "./location/Stats";
 import HomePage from "./Homepage";
+import LoginPage from "./Login";
 import Layout from "./Layout";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         {/* Homepage SENZA sidebar */}
         <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
 
         {/* Tutto il resto CON sidebar */}
         <Route path="/" element={<Layout />}>

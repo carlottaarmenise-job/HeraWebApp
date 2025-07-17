@@ -14,7 +14,7 @@ function HomePage() {
         <p className="lead">Gestisci la tua location in modo semplice e veloce.</p>
         <hr />
         <p>Modifica il profilo, il menù, la vetrina e gestisci le prenotazioni.</p>
-        <Button as={Link} to="/location/profile" variant="success" className="mt-3">
+        <Button as={Link} to="/login" variant="success" className="mt-3">
           Area Location
         </Button>
       </div>
